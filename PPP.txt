@@ -86,6 +86,73 @@ public class Piedra {
  
 	}
  
+ static final int piedra = 1;
+	static final int papel = 2;
+	static final int tijeras = 3;
+ 
+	public static void main(String[] args) {
+		int ordenador;
+		int usuario;
+		int ganador;
+		char continuar;
+		int contador;
+ 
+		contador = 1;
+ 
+		do {
+            Scanner s= new Scanner(System.in);
+ 
+            System.out.println("Introduzca una opcion numerica: Piedra = 1, Papel = 2 o Tijera = 3");
+            usuario = s.nextInt();
+            Decision(usuario);
+            contador ++;
+            ordenador =  generarValor(contador,usuario);
+            ganador = calcularGanador(usuario,ordenador);
+            if ( calcularGanador(usuario,ordenador) == 1) {
+                System.out.println("Has ganado, enhorabuena");
+            }else if (calcularGanador(usuario,ordenador) == 2) {
+                System.out.println("Has perdido pringado");
+            } else if (calcularGanador(usuario,ordenador) == 0) {
+                System.out.println("Empate, que compenetracion");
+            }
+            s.nextLine();
+            System.out.println("Desea continuar? S / N");
+            continuar = s.next().charAt(0);
+		}while (continuar !='N' || continuar !='n');
+ 
+ 
+	}
+ 
+	static int calcularGanador(int jugador1, int jugador2) {
+		if (jugador1 == jugador2) {
+			return 0;
+		}else {
+			switch (jugador1) {
+			case 1: switch (jugador2) {
+                    case 2: return 2;
+                        break,
+                    case 3: return 1;
+                        break;
+                }
+                break;
+			case 2: switch (jugador2) {
+                    case 1: return 1;
+                        break;
+                    case 3: return 2;
+                        break;
+                }
+                break;
+			case 3: switch (jugador2) {
+                    case 1: return 2;
+                        break;
+                    case 2: return 1;
+                        break;
+                }
+                break;
+ 
+			}
+		}
+	}
  
  
 	
