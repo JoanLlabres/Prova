@@ -88,22 +88,5 @@ public class Piedra {
  
  
  
-	static int generarValor(int contador, int usuario) {
-	    if (contador %2 == 0 ) {
-	       switch (usuario) {
-	           case 1: return 2;
-	                          break;
-	           case 2: return 3;
-	                          break;
-	           case 3: return 1;
-	                          break;
-	       }
-	    } else {
-            Random r = new Random();
- 
-            return r.nextInt(3)+1;
-	    }
- 
-    }
- 
+	
 }
