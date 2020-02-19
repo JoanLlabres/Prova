@@ -1,6 +1,9 @@
 public class Piedra {
  
  
+	public class Piedra {
+ 
+ 
 	static final int piedra = 1;
 	static final int papel = 2;
 	static final int tijeras = 3;
@@ -37,3 +40,70 @@ public class Piedra {
  
  
 	}
+ 
+	static int calcularGanador(int jugador1, int jugador2) {
+		if (jugador1 == jugador2) {
+			return 0;
+		}else {
+			switch (jugador1) {
+			case 1: switch (jugador2) {
+                    case 2: return 2;
+                        break,
+                    case 3: return 1;
+                        break;
+                }
+                break;
+			case 2: switch (jugador2) {
+                    case 1: return 1;
+                        break;
+                    case 3: return 2;
+                        break;
+                }
+                break;
+			case 3: switch (jugador2) {
+                    case 1: return 2;
+                        break;
+                    case 2: return 1;
+                        break;
+                }
+                break;
+ 
+			}
+		}
+	}
+ 
+	static void Decision (int usuario) {
+		switch (usuario) {
+		 case 1: System.out.println("has elegido piedra");
+                break;
+		 case 2: System.out.println("has elegido papel");
+                break;
+		 case 3: System.out.println("has elegido tijeras");
+                break;
+		 default: System.out.println("No es una opcion valida");
+                break;
+		}
+ 
+	}
+ 
+ 
+ 
+	static int generarValor(int contador, int usuario) {
+	    if (contador %2 == 0 ) {
+	       switch (usuario) {
+	           case 1: return 2;
+	                          break;
+	           case 2: return 3;
+	                          break;
+	           case 3: return 1;
+	                          break;
+	       }
+	    } else {
+            Random r = new Random();
+ 
+            return r.nextInt(3)+1;
+	    }
+ 
+    }
+ 
+}
